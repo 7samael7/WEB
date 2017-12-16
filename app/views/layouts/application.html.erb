@@ -4,7 +4,7 @@
     <title>WEB</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>List of Buildings</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <%= stylesheet_link_tag 'application.css', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -24,7 +24,7 @@
       <a href="rooms.html">All Rooms</a>
     </h3>
   </div>
-
+<!--
   <div>
     <aside class="side">
       <ul>
@@ -70,7 +70,8 @@
       </a>
     </h3>
   </div>
-
+-->
+  <%= yield %>
   <div>
     <footer class="foot">
       Copyright &copy; 2017

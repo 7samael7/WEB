@@ -1,6 +1,9 @@
 class RoomsController < ApplicationController
+
+  before_action :find_building
+
   def index
-    @rooms = Room.where building_id: params[:building_id]
+    @rooms = @building.rooms
   end
 
   def show
@@ -12,8 +15,10 @@ class RoomsController < ApplicationController
   end
 
   def create
-    @room = Room.create(room_params)
-    redirect_to @room
+    @room = @building.rooms.build(room_params)
+    @room.save!
+    #@room = Room.create(room_params)
+    redirect_to building_room_path(@building, @room)
   end
 
   def edit
@@ -21,6 +26,7 @@ class RoomsController < ApplicationController
   end
 
   def update
+    raise params
     @room = Room.update(room_params)
     redirect_to room_path @room
   end
@@ -33,7 +39,11 @@ class RoomsController < ApplicationController
   private
 
   def room_params
-    params.require(:room).permit(:building_id ,:title, :code)
+    params.require(:fake).permit(:title, :code)
+  end
+
+  def find_building
+    @building = Building.find params[:building_id]
   end
 
 end

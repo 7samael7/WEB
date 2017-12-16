@@ -1,0 +1,9 @@
+<%= form_for [@building, @room], as: :fake do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :code %>
+  <%= f.text_field :code %>
+
+  <%= f.submit :save %>
+<% end %>

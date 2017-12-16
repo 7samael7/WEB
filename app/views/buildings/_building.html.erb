@@ -1,8 +1,6 @@
 <div class="box">
-  <img src="https://upload.wikimedia.org/wikipedia/en/0/00/Aldar_Headquarters_Building.jpg" alt="building3" style="width: 250px;height: 250px;border: 0;">
   <h3 class="boxes button">
-    <a href="rooms.html">
-      Building 3
-    </a>
+    <%= link_to @building.title, '#' %>
   </h3>
+  <p> code: <%= @building.code %> </p>
 </div>

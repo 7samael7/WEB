@@ -1,11 +1,11 @@
 class BuildingsController < ApplicationController
 
-  def show
-    @building = Building.find(params[:id])
-  end
-
   def index
     @buildings = Building.all
+  end
+
+  def show
+    @building = Building.find(params[:id])
   end
 
   def new
@@ -17,6 +17,19 @@ class BuildingsController < ApplicationController
     redirect_to @building
   end
 
+  def edit
+    @building = Building.find(params[:id])
+  end
+
+  def update
+    @building = Building.update(building_params)
+    redirect_to building_path @building
+  end
+
+  def destroy
+    @building = Building.find(params[:id]).delete
+    redirect_to :index
+  end
 
   private
 

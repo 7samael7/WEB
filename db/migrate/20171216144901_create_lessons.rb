@@ -3,7 +3,7 @@ class CreateLessons < ActiveRecord::Migration[5.1]
     create_table :lessons do |t|
       t.datetime :start_at
       t.datetime :end_at
-      t.integer :durration
+      t.int :duration
 
       t.timestamps
     end

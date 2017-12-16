@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :buildings do
     resources :rooms do
-      resources :courses
+      resources :lessons
     end
   end
 

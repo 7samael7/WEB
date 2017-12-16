@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe "courses/update.html.erb", type: :view do
+RSpec.describe "lessons/update.html.erb", type: :view do
   pending "add some examples to (or delete) #{__FILE__}"
 end

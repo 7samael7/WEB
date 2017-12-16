@@ -1,0 +1,9 @@
+<%= form_for [@building, @room, @lesson], as: :faker do |f| %>
+  <%= f.label :start_at %>
+  <%= f.datetime_select :start_at %>
+
+  <%= f.label :duration %>
+  <%= f.time_select :durration %>
+
+  <%= f.submit :save %>
+<% end %>

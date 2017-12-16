@@ -1,6 +1,6 @@
 <div class="box">
   <h3 class="boxes button">
-    <%= link_to room.title, '#' %>
+    <%= link_to room.title, building_room_lessons_path(@building, room) %>
   </h3>
   <p> code: <%= room.code %> </p>
 </div>

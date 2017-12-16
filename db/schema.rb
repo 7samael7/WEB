@@ -24,16 +24,16 @@ ActiveRecord::Schema.define(version: 20171216164613) do
     t.string "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "language", default: 0
-    t.integer "study_type", default: 0
   end
 
   create_table "lessons", force: :cascade do |t|
     t.datetime "start_at"
     t.datetime "end_at"
-    t.integer "durration"
+    t.integer "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "language", default: 0
+    t.integer "study_type", default: 0
     t.integer "room_id"
     t.integer "teacher_id"
     t.integer "course_id"

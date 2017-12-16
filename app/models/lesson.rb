@@ -4,6 +4,6 @@ class Lesson < ApplicationRecord
   belongs_to :course
 
   def day
-
+    start_at.wday
   end
 end

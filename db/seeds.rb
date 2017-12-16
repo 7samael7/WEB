@@ -6,16 +6,22 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+buildings = []
 5.times do |i|
-  Building.create(title: "Building #{i}", code: "00#{i}" )
+  buildings << Building.create!(title: "Building #{i}", code: "00#{i}" )
 end
 
-Building.all.each do |building|
+rooms = []
+buildings.each do |building|
   5.times do |i|
-    Room.create(title: "Room #{i}", code: "10#{i}", building: building)
+    rooms << Room.create!(title: "Room #{i}", code: "10#{i}", building: building)
   end
 end
 
-Room.all.each do |room|
-  Lesson.create(start_at: Time.current, end_at: Time.current + 500.seconds, duration: 500.seconds, room: room)
+Teacher.create!(first_name: "Pepa", last_name: "Smoula", email: "pepa@nechce.cz")
+Student.create!(first_name: "Josef", last_name: "Zahradka", email: "josef@chce.cz")
+Course.create!(title: "Matika", code: "MA1")
+
+rooms.each do |room|
+  Lesson.create!(start_at: Time.current, end_at: Time.current + 500.seconds, duration: 500.seconds, room: room, teacher: Teacher.first, course: Course.first)
 end

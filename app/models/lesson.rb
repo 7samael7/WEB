@@ -1,5 +1,5 @@
 class Lesson < ApplicationRecord
-  has_one :room
-  has_one :teacher
-  has_one :course
+  belongs_to :room
+  belongs_to :teacher
+  belongs_to :course
 end

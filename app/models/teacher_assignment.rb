@@ -1,4 +1,4 @@
 class TeacherAssignment < ApplicationRecord
-  has_one :teacher
-  has_one :course
+  belongs_to :teacher
+  belongs_to :course
 end

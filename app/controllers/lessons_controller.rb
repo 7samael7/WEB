@@ -3,7 +3,7 @@ class LessonsController < ApplicationController
   before_action :find_room_and_building
 
   def index
-    @lessons = @room.lessons
+    @lessons = @room.lessons.this_week.order(start_at: :asc)
   end
 
   def show

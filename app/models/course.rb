@@ -3,6 +3,6 @@ class Course < ApplicationRecord
   has_many :teacher_assignments
   has_many :student_assignments
 
-  enum language: [:CZECH, :ENGLISH]
-  enum study_type: [:FULL_TIME, :PART_TIME]
+  enum language: [:czech, :english]
+  enum study_type: [:full_time, :part_time]
 end

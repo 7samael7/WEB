@@ -39,7 +39,7 @@ ul.breadcrumb li a {
 }
 /*mouse-over*/
 ul.breadcrumb li a:hover {
-    color: #3159bb;
+    //color: #3159bb;
     text-decoration: underline;
 }
 h3.button a:link, a:visited {

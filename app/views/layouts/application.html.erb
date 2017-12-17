@@ -23,6 +23,18 @@
       <a href="#">Today</a>
       <a href="#">All Rooms</a>
     </h3>
+    <% if @building %>
+      <ul class="breadcrumb">
+        <li class="breadcrumb">
+          <%= link_to 'buildings', buildings_path %>
+        </li>
+        <% if @room %>
+           <li class="breadcrumb">
+             <%= link_to 'rooms', building_rooms_path(@building) %>
+           </li>
+        <% end %>
+      </ul>
+    <% end %>
   </div>
 
   <%= yield %>

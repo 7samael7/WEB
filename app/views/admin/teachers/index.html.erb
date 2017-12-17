@@ -1,2 +1,3 @@
-<h1>Admin::Teachers#index</h1>
-<p>Find me in app/views/admin/teachers/index.html.erb</p>
+<%= render @teachers %>
+<%= link_to 'new', new_admin_teacher_path %>
+<%= link_to 'dashboard', admin_root_path %>

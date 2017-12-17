@@ -1,8 +1,8 @@
 <div class="box">
   <h3 class="boxes button">
-    <%= link_to lesson.course.title, admin_building_room_lessons_path(@building, @room, lesson) %>
+    <%= link_to lesson.course.title, admin_building_room_lessons_path(lesson.room.building, lesson.room, lesson) %>
   </h3>
   <p> code: <%= lesson.course.code %> </p>
-  <%= link_to 'edit', edit_admin_building_room_lesson_path(@building, @room, lesson) %>
-  <%= link_to 'delete', admin_building_room_lesson_path(@building, @room, lesson), data: {confirm: 'Are you sure?'}, method: :delete %>
+  <%= link_to 'edit', edit_admin_building_room_lesson_path(lesson.room.building, lesson.room, lesson) %>
+  <%= link_to 'delete', admin_building_room_lesson_path(lesson.room.building, lesson.room, lesson), data: {confirm: 'Are you sure?'}, method: :delete %>
 </div>

@@ -5,6 +5,12 @@ class Admin::RoomsController < AdminController
 
   def index
     @rooms = @building.rooms
+    render 'empty' if @rooms.empty?
+  end
+
+  def all
+    @rooms = Room.all
+    render 'empty' if @rooms.empty?
   end
 
   def show
@@ -38,7 +44,7 @@ class Admin::RoomsController < AdminController
   private
 
   def heading_name
-    @heading_name = "#{@building.title}: Rooms"
+    @heading_name = "#{@building&.title}: Rooms"
   end
 
   def room_params
@@ -46,6 +52,6 @@ class Admin::RoomsController < AdminController
   end
 
   def find_building
-    @building = Building.find params[:building_id]
+    @building = Building.find_by id: params[:building_id]
   end
 end

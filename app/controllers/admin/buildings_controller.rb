@@ -6,6 +6,7 @@ class Admin::BuildingsController < AdminController
 
   def index
     @buildings = Building.all
+    render 'empty' if @buildings.empty?
   end
 
   def show

@@ -1,2 +1,8 @@
-<%= render 'form' %>
+<%= simple_form_for @building, url: admin_building_path(@building), method: :patch do |f| %>
+  <%= f.input :title %>
+
+  <%= f.input :code %>
+
+  <%= f.button :submit %>
+<% end %>
 <%= link_to 'delete', admin_building_path(@building), method: :delete %>

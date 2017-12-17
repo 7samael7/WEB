@@ -1,0 +1,9 @@
+<div class="box">
+  <h3 class="boxes button">
+    <%= link_to student.last_name, admin_student_path(student) %>
+  </h3>
+  <p> first_name: <%= student.first_name %> </p>
+  <p> email: <%= student.email %> </p>
+  <%= link_to 'edit', edit_admin_student_path(student) %>
+  <%= link_to 'delete', admin_student_path(student), data: {confirm: 'Are you sure?'}, method: :delete %>
+</div>

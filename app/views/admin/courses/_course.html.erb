@@ -1,0 +1,10 @@
+<div class="box">
+  <h3 class="boxes button">
+    <%= link_to course.title, admin_course_path(course) %>
+  </h3>
+  <p> code: <%= course.code %> </p>
+  <p> teacher: <%= course.teachers.map(&:to_s).join(", ") %></p>
+  <p> students: <%= course.students.map(&:to_s).join(", ") %></p>
+  <%= link_to 'edit', edit_admin_course_path(course) %>
+  <%= link_to 'delete', admin_course_path(course), data: {confirm: 'Are you sure?'}, method: :delete %>
+</div>

@@ -1,2 +1,9 @@
-<h1>Admin::Teachers#edit</h1>
-<p>Find me in app/views/admin/teachers/edit.html.erb</p>
+<%= simple_form_for @teacher, url: admin_teacher_path(@teacher), method: :patch do |f| %>
+  <%= f.input :first_name %>
+
+  <%= f.input :last_name %>
+
+  <%= f.input :email %>
+
+  <%= f.button :submit %>
+<% end %>

@@ -5,7 +5,12 @@ class Admin::LessonsController < AdminController
 
   def index
     @lessons = @room.lessons.this_week.includes(:course).order(start_at: :asc)
+    render 'empty' if @lessons.empty?
+  end
 
+  def all
+    @lessons = Lesson.all
+    render 'empty' if @lessons.empty?
   end
 
   def show
@@ -19,8 +24,6 @@ class Admin::LessonsController < AdminController
   def create
 
     @lesson = @room.lessons.build(lesson_params)
-    @lesson.teacher = Teacher.first # TODO don't want to have this here at the end == hack => remove
-    @lesson.course = Course.first # TODO don't want to have this here at the end == hack => remove
 
     if @lesson.save
       redirect_to admin_building_room_lessons_path(@building, @room)
@@ -46,15 +49,15 @@ class Admin::LessonsController < AdminController
   private
 
   def heading_name
-    @heading_name = "#{@room.title}: Schedule"
+    @heading_name = "#{@room&.title}: Schedule"
   end
 
   def lesson_params
-    params.require(:faker).permit(:start_at, :duration)
+    params.require(:faker).permit(:start_at, :duration, :teacher_id, :course_id)
   end
 
   def find_room_and_building
-    @building = Building.find params[:building_id]
-    @room = Room.find params[:room_id]
+    @building = Building.find_by id: params[:building_id]
+    @room = Room.find_by id: params[:room_id]
   end
 end

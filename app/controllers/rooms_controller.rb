@@ -4,6 +4,7 @@ class RoomsController < ApplicationController
 
   def index
     @rooms = @building.rooms
+    render 'empty' if @rooms.empty?
   end
 
   def show

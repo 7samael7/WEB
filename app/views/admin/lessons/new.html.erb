@@ -1,1 +1,11 @@
-<%= render 'form' %>
+<%= simple_form_for [@building, @room, @lesson], url: admin_building_room_lessons_path(@building, @room, @lesson), method: :post, as: :faker do |f| %>
+  <%= f.input :start_at, as: :datetime, minute_step: 60 %>
+
+  <%= f.input :duration, collection: 1..8, include_blank: false %>
+
+  <%= f.association :course %>
+
+  <%= f.association :teacher, collection: Teacher.all %>
+
+  <%= f.button :submit %>
+<% end %>

@@ -1,2 +1,12 @@
-<h1>Admin::Students#new</h1>
-<p>Find me in app/views/admin/students/new.html.erb</p>
+<%= simple_form_for @student, url: admin_students_path(@student), method: :post do |f| %>
+  <%= f.input :first_name %>
+
+  <%= f.input :last_name %>
+
+  <%= f.input :email %>
+
+  <%= f.input :study_type, include_blank: false %>
+
+  <%= f.button :submit %>
+
+<% end %>

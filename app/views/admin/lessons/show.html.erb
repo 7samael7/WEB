@@ -1,1 +1,4 @@
+
 <%= render @lesson %>
+
+<p> Students: <%= @lesson.course.students.map(&:to_s).join(", ") %> </p>

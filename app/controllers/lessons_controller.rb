@@ -5,7 +5,6 @@ class LessonsController < ApplicationController
 
   def index
     @lessons = @room.lessons.this_week.includes(:course).order(start_at: :asc)
-
   end
 
   def show

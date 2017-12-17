@@ -1,2 +1,12 @@
-<h1>Admin::Courses#edit</h1>
-<p>Find me in app/views/admin/courses/edit.html.erb</p>
+<%= simple_form_for @course, url: admin_course_path(@course), method: :patch do |f| %>
+  <%= f.input :title%>
+
+  <%= f.input :code %>
+
+  <%= f.input :study_type, include_blank: false %>
+
+  <%= f.input :language, include_blank: false %>
+
+  <%= f.button :submit %>
+
+<% end %>

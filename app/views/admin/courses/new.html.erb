@@ -1,2 +1,16 @@
-<h1>Admin::Courses#new</h1>
-<p>Find me in app/views/admin/courses/new.html.erb</p>
+<%= simple_form_for @course, url: admin_courses_path(@course), method: :post do |f| %>
+  <%= f.input :title%>
+
+  <%= f.input :code %>
+
+  <%= f.input :study_type, include_blank: false %>
+
+  <%= f.input :language, include_blank: false %>
+
+  <%= f.association :students %>
+
+  <%= f.association :teachers %>
+
+  <%= f.button :submit %>
+
+<% end %>

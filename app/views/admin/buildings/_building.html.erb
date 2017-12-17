@@ -1,0 +1,11 @@
+<div class="box">
+  <h3 class="boxes button">
+    <%= link_to building.title, admin_building_rooms_path(building) %>
+  </h3>
+  <p>
+    <%= link_to 'overview', admin_overview_building_path(building) %>
+  </p>
+  <p> code: <%= building.code %> </p>
+  <%= link_to 'edit', edit_admin_building_path(building) %>
+  <%= link_to 'delete', admin_building_path(building), data: {confirm: 'Are you sure?'}, method: :delete %>
+</div>

@@ -1,0 +1,23 @@
+<div>
+  <table style="width: 100%">
+    <tr>
+      <th>Room / Time</th>
+      <th>8:00 - 9:00</th>
+      <th>10:00 - 11:00</th>
+      <th>11:00 - 12:00</th>
+      <th>13:00 - 14:00</th>
+      <th>14:00 - 15:00</th>
+      <th>15:00 - 16:00</th>
+      <th>16:00 - 17:00</th>
+      <th>18:00 - 19:00</th>
+    </tr>
+    <% @rooms.each do |room| %>
+      <tr>
+        <td>
+          <%= room.title %>
+        </td>
+        <%= room_invocation(room.lessons.today) %>
+      </tr>
+    <% end %>
+  </table>
+</div>

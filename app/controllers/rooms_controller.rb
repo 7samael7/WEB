@@ -17,7 +17,7 @@ class RoomsController < ApplicationController
   # def create
   #   @room = @building.rooms.build(room_params)
   #   @room.save!
-  #   redirect_to building_room_path(@building, @room)
+  #   redirect_to admin_building_room_path(@building, @room)
   # end
   #
   # def edit
@@ -26,7 +26,7 @@ class RoomsController < ApplicationController
   #
   # def update
   #   @room = Room.update(room_params)
-  #   redirect_to room_path @room
+  #   redirect_to admin_room_path @room
   # end
   #
   # def destroy

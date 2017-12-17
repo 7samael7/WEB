@@ -1,0 +1,7 @@
+<%= simple_form_for [@building, @room], url: admin_building_room_path(@building, @room), as: :fake do |f| %>
+  <%= f.input :title %>
+
+  <%= f.input :code %>
+
+  <%= f.button :submit %>
+<% end %>

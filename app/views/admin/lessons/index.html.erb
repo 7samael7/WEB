@@ -1,0 +1,26 @@
+
+<div>
+  <table style="width: 100%">
+    <tr>
+      <th>Days / Time</th>
+      <th>8:00 - 9:00</th>
+      <th>10:00 - 11:00</th>
+      <th>11:00 - 12:00</th>
+      <th>13:00 - 14:00</th>
+      <th>14:00 - 15:00</th>
+      <th>15:00 - 16:00</th>
+      <th>16:00 - 17:00</th>
+      <th>18:00 - 19:00</th>
+    </tr>
+    <% 7.times do |day| %>
+      <% current_lessons = @lessons.select{|l| l.day == day}  %>
+      <tr>
+        <td>
+          <%= Date::DAYNAMES[day] %>
+        </td>
+        <%= generate_hours(current_lessons) %>
+      </tr>
+    <% end %>
+  </table>
+  <%= link_to 'New', new_admin_building_room_lesson_path(@building, @room) %>
+</div>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tag %>
+    <title>WEB</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>List of Buildings</title>
+    <%= stylesheet_link_tag 'application.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+  <div class="container">
+    <header>
+      <h1>
+        <strong><%= @heading_name %></strong>
+      </h1>
+    </header>
+  </div>
+
+  <div class="scrollmenu" style="width: inherit">
+    <h3 class="button boxes">
+      <a href="#">Schedule</a>
+      <a href="#">Today</a>
+      <a href="#">All Rooms</a>
+    </h3>
+    <% if @building %>
+      <ul class="breadcrumb">
+        <li class="breadcrumb">
+          <%= link_to 'buildings', buildings_path %>
+        </li>
+        <% if @room %>
+           <li class="breadcrumb">
+             <%= link_to 'rooms', building_rooms_path(@building) %>
+           </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+  <%= yield %>
+  <div>
+    <footer class="foot">
+      Copyright &copy; 2017
+    </footer>
+  </div>
+
+  </body>
+</html>

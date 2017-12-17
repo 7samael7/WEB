@@ -1,8 +1,7 @@
-
 <div>
   <table style="width: 100%">
     <tr>
-      <th>Days / Time</th>
+      <th>Room / Time</th>
       <th>8:00 - 9:00</th>
       <th>10:00 - 11:00</th>
       <th>11:00 - 12:00</th>
@@ -12,13 +11,12 @@
       <th>16:00 - 17:00</th>
       <th>18:00 - 19:00</th>
     </tr>
-    <% 7.times do |day| %>
-      <% current_lessons = @lessons.select{|l| l.day == day}  %>
+    <% @rooms.each do |room| %>
       <tr>
         <td>
-          <%= Date::DAYNAMES[day] %>
+          <%= room.title %>
         </td>
-        <%= generate_hours(current_lessons) %>
+        <%= room_invocation(room.lessons.today) %>
       </tr>
     <% end %>
   </table>

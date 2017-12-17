@@ -12,38 +12,6 @@ class LessonsController < ApplicationController
     @lesson = Lesson.find(params[:id])
   end
 
-  def new
-    @lesson = Lesson.new
-  end
-
-  def create
-
-    @lesson = @room.lessons.build(lesson_params)
-    @lesson.teacher = Teacher.first # TODO don't want to have this here at the end == hack => remove
-    @lesson.course = Course.first # TODO don't want to have this here at the end == hack => remove
-
-    #raise ""
-    if @lesson.save
-      redirect_to building_room_lessons_path(@building, @room)
-    else
-      render 'new'
-    end
-  end
-
-  def edit
-    @lesson = Lesson.find(params[:id])
-  end
-
-  def update
-    @lesson = Lesson.update(lesson_params)
-    redirect_to building_room_lesson_path(@building, @room, @lesson)
-  end
-
-  def destroy
-    @lesson = Lesson.find(params[:id]).delete
-    redirect_to :index
-  end
-
   private
 
   def heading_name

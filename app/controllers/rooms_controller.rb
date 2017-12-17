@@ -10,29 +10,29 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
   end
 
-  def new
-    @room = Room.new
-  end
-
-  def create
-    @room = @building.rooms.build(room_params)
-    @room.save!
-    redirect_to building_room_path(@building, @room)
-  end
-
-  def edit
-    @room = Room.find(params[:id])
-  end
-
-  def update
-    @room = Room.update(room_params)
-    redirect_to room_path @room
-  end
-
-  def destroy
-    @room = Room.find(params[:id]).delete
-    redirect_to :index
-  end
+  # def new
+  #   @room = Room.new
+  # end
+  #
+  # def create
+  #   @room = @building.rooms.build(room_params)
+  #   @room.save!
+  #   redirect_to building_room_path(@building, @room)
+  # end
+  #
+  # def edit
+  #   @room = Room.find(params[:id])
+  # end
+  #
+  # def update
+  #   @room = Room.update(room_params)
+  #   redirect_to room_path @room
+  # end
+  #
+  # def destroy
+  #   @room = Room.find(params[:id]).delete
+  #   redirect_to :index
+  # end
 
   private
 

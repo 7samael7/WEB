@@ -10,27 +10,9 @@ class BuildingsController < ApplicationController
     @building = Building.find(params[:id])
   end
 
-  def new
-    @building = Building.new
-  end
-
-  def create
-    @building = Building.create(building_params)
-    redirect_to @building
-  end
-
-  def edit
+  def overview
     @building = Building.find(params[:id])
-  end
-
-  def update
-    @building = Building.update(building_params)
-    redirect_to building_path @building
-  end
-
-  def destroy
-    @building = Building.find(params[:id]).delete
-    redirect_to :index
+    @rooms = @building.rooms
   end
 
   private

@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'buildings/:id/overview', to: 'buildings#overview', as: 'overview_building'
 
 end

@@ -2,5 +2,8 @@
   <h3 class="boxes button">
     <%= link_to building.title, building_rooms_path(building) %>
   </h3>
+  <p>
+    <%= link_to 'overview', overview_building_path(building) %>
+  </p>
   <p> code: <%= building.code %> </p>
 </div>

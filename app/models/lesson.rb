@@ -17,6 +17,10 @@ class Lesson < ApplicationRecord
     end
   end
 
+  def self.today
+    where start_at: (Time.zone.now.beginning_of_day..(Time.zone.now.beginning_of_day))
+  end
+
   def day
     start_at.wday
   end

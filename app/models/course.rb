@@ -1,5 +1,6 @@
 class Course < ApplicationRecord
   has_many :lessons
+  has_and_belongs_to_many :students, join_table: :student_assignments
   has_many :teacher_assignments
   has_many :student_assignments
 

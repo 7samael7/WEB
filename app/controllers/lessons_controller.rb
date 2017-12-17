@@ -15,7 +15,10 @@ class LessonsController < ApplicationController
   end
 
   def create
+
     @lesson = @room.lessons.build(lesson_params)
+    @lesson.teacher = Teacher.first # TODO don't want to have this here at the end == hack => remove
+    @lesson.course = Course.first # TODO don't want to have this here at the end == hack => remove
     @lesson.save!
 
     redirect_to building_room_lesson_path(@building, @room, @lesson)
@@ -38,7 +41,7 @@ class LessonsController < ApplicationController
   private
 
   def lesson_params
-    params.require(:faker).permit(:start_at, :durration)
+    params.require(:faker).permit(:start_at, :duration)
   end
 
   def find_room_and_building

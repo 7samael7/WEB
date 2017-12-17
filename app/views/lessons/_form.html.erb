@@ -3,7 +3,7 @@
   <%= f.datetime_select :start_at %>
 
   <%= f.label :duration %>
-  <%= f.time_select :durration %>
+  <%= f.select :duration, 1..8 %>
 
   <%= f.submit :save %>
 <% end %>

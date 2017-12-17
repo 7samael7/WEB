@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   before_action :find_building
+  before_action :heading_name
 
   def index
     @rooms = @building.rooms
@@ -34,6 +35,10 @@ class RoomsController < ApplicationController
   end
 
   private
+
+  def heading_name
+    @heading_name = "#{@building.title}: Rooms"
+  end
 
   def room_params
     params.require(:fake).permit(:title, :code)

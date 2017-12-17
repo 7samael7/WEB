@@ -3,11 +3,18 @@ class Lesson < ApplicationRecord
   belongs_to :teacher
   belongs_to :course
 
-  before_create :calculate_end_time
+  validates :duration, presence: true, numericality: { only_integer: true }
 
-  #scope :this_week, where start_at: (Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
+
+  before_validation :calculate_end_time
+  validate :check_for_time_collisions
+
   def self.this_week
-    where start_at: (Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
+    if Time.zone.now.wday != 0
+      where start_at: ((Time.zone.now.beginning_of_week - 1.day)..(Time.zone.now.end_of_week - 1.day))
+    else
+      where start_at: (Time.zone.now.beginning_of_day..(Time.zone.now.beginning_of_day + 7.days))
+    end
   end
 
   def day
@@ -24,6 +31,19 @@ class Lesson < ApplicationRecord
 
 
   private
+
+  def check_for_time_collisions
+    lessons_this_week = room.lessons.this_week
+    lessons_this_week.each do |lesson|
+      if collide?(lesson)
+        errors.add(:start_at, 'lesson collision')
+      end
+    end
+  end
+
+  def collide?(lesson)
+    (start_at..end_at).overlaps?(lesson.start_at..lesson.end_at)
+  end
 
   def calculate_end_time
     self.end_at = start_at + duration.hour.seconds

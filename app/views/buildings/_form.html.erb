@@ -1,9 +1,7 @@
-<%= form_for @building do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+<%= simple_form_for @building do |f| %>
+  <%= f.input :title %>
 
-  <%= f.label :code %>
-  <%= f.text_field :code %>
+  <%= f.input :code %>
 
-  <%= f.submit :save %>
+  <%= f.button :submit %>
 <% end %>

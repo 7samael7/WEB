@@ -1,9 +1,7 @@
-<%= form_for [@building, @room, @lesson], as: :faker do |f| %>
-  <%= f.label :start_at %>
-  <%= f.datetime_select :start_at %>
+<%= simple_form_for [@building, @room, @lesson], as: :faker do |f| %>
+  <%= f.input :start_at, as: :datetime %>
 
-  <%= f.label :duration %>
-  <%= f.select :duration, 1..8 %>
+  <%= f.input :duration, collection: 1..8 %>
 
-  <%= f.submit :save %>
+  <%= f.button :submit %>
 <% end %>
